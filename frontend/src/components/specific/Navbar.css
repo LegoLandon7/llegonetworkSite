@@ -51,8 +51,11 @@
     .nav-links {
         display: flex;
         align-items: center;
+        justify-content: flex-end;
+        flex: 1;
 
         height: 100%;
+        margin-right: calc(var(--padding-3) * -1);
 
         overflow: hidden;
 
@@ -68,7 +71,7 @@
             font-size: var(--header-font-size-3);
             font-weight: var(--font-weight-2);
 
-            padding: 0 var(--padding-1);
+            padding: 0 var(--padding-2);
 
             transition: background-color var(--transition-3);
 
@@ -93,8 +96,6 @@
             aspect-ratio: 1 / 1;
             height: calc(var(--navbar-height) - var(--padding-3));
             width: auto;
-
-            margin-right: var(--padding-4);
 
             filter: invert(1);
         }
@@ -142,5 +143,9 @@
 
     .navbar .nav-hamburger {
         display: flex;
+
+        img {
+            margin-right: var(--padding-4);
+        }
     }
 }

@@ -21,7 +21,8 @@ function Navbar() {
             <div className={`nav-links ${menuOpen ? "open" : ""}`}>
                 <NavLink to="/" onClick={() => setMenuOpen(false)}>Home</NavLink>
                 <NavLink to="/about" onClick={() => setMenuOpen(false)}>About</NavLink>
-                <NavLink to="/users" onClick={() => setMenuOpen(false)}>Users</NavLink>
+                <NavLink to="/projects" onClick={() => setMenuOpen(false)}>Projects</NavLink>
+                <NavLink to="/contact" onClick={() => setMenuOpen(false)}>Contact</NavLink>
             </div>
 
             <button className="nav-hamburger" onClick={

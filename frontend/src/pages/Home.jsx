@@ -8,13 +8,8 @@ function Home() {
             header={"llegonetwork"}
             description={"This website was made by me, Landon Lego, a current High School student to show off some things that I am able to devolop!\n\nDiscord bots, websites, and more!"}
             img={HeaderIcon}
-            imgBorder={true}
             buttons={[
-                {label: "Check out more!", to: "/"}
-            ]}
-            notes={[
-                {label: "test", text: "test"},
-                {label: "another test", text: "wow"}
+                {label: "About Me", to: "/about"},
             ]}
         />
     </div>

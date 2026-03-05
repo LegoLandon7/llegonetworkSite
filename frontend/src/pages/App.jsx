@@ -4,10 +4,7 @@ import { Route, Routes } from 'react-router-dom'
 import Navbar from '../components/specific/Navbar.jsx'
 
 import Home from './Home.jsx'
-
-function About() {
-  return <h1>About</h1>;
-}
+import About from './About.jsx'
 
 function Users() {
   return <h1>Users</h1>;
@@ -21,7 +18,8 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
-        <Route path="/users" element={<Users />} />
+        <Route path="/projects" element={<Users />} />
+        <Route path="/contact" element={<Users />} />
       </Routes>
     </>
   )

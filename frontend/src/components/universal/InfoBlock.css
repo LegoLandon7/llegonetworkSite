@@ -3,6 +3,8 @@
     flex-direction: row;
     align-items: flex-start;
 
+    margin: var(--padding-3) var(--padding-3);
+
     width: auto;
     height: auto;
     overflow-x: hidden;
@@ -30,7 +32,7 @@
 
         padding: var(--padding-2) var(--padding-2);
 
-        width: auto;
+        width: 100%;
 
         .info-header-row {
             display: flex;
@@ -40,7 +42,9 @@
 
             h2 {
                 flex: 1;
+                margin-bottom: var(--padding-3);
             }
+            margin-bottom: var(--padding-3);
         }
 
         .info-buttons {
@@ -115,14 +119,21 @@
 
                     strong {
                         white-space: pre-line;
-                        font-size: var(--body-font-size-3);
+                        font-size: var(--body-font-size-4);
                         color: var(--body-text-color-1);
+                        font-weight: var(--font-weight-1);
                     }
 
                     span {
                         white-space: pre-line;
-                        font-size: var(--body-font-size-3);
+                        font-size: var(--body-font-size-4);
                         color: var(--body-text-color-1);
+                    }
+
+                    a {
+                        white-space: pre-line;
+                        font-size: var(--body-font-size-4);
+                        color: var(--detail-color-2);
                     }
                 }
 
@@ -138,6 +149,8 @@
     .info-block {
         flex-direction: column;
         align-items: stretch;
+        flex: unset !important;
+        width: 100%;
 
         img {
             align-self: center;

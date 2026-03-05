@@ -1,12 +1,12 @@
 import './InfoBlock.css'
 
 function InfoBlock({
-    header = "lorem ipsum", 
+    header = null, 
     headerPos = 'left', // center, left, right
 
     buttons=[],
 
-    description = "lorem ipsum", 
+    description = null, 
 
     img = null, 
     imgPos = 'auto', // auto, left, right, top, bottom
@@ -15,6 +15,7 @@ function InfoBlock({
 
     maxWidth = null,
     maxHeight = null,
+    grow = null,
 
     divider = true
 }) {
@@ -46,36 +47,47 @@ function InfoBlock({
             ...(flexDir && { flexDirection: flexDir }),
             ...(maxWidth && { maxWidth }),
             ...(maxHeight && { maxHeight }),
+            ...(grow && { flex: grow, minWidth: 0 }),
         }}>
 
             {/*image*/}
-            {img && <img src={img} />}
+            {img && <img src={img} style={{ width: (isTop || isBottom) ? '80%' : '30%' }} />}
 
             {/*body text*/}
             <div className="info-body">
 
                 {/*header + buttons*/}
-                <div className="info-header-row">
-                    {headerPos === 'right' && buttonsEl}
-                    <h2 style={{ textAlign: headerPos }}>{header}</h2>
-                    {(headerPos === 'left' || headerPos === 'center') && buttonsEl}
-                </div>
+                {(header || buttons.length > 0) && (
+                    <div className="info-header-row">
+                        {headerPos === 'right' && buttonsEl}
+                        {header && <h2 style={{ textAlign: headerPos }}>{header}</h2>}
+                        {(headerPos === 'left' || headerPos === 'center') && buttonsEl}
+                    </div>
+                )}
 
                 {/*divider*/}
                 {divider && <div className="header-divider" />}
 
                 {/*description*/}
-                <p>{description}</p>
+                {description && <p>{description}</p>}
 
                 {/*notes*/}
                 {notes.length > 0 && (
                     <div className="info-notes">
                         {notes.map((note, idx) => (
                             <div key={idx} className="info-note">
+
                                 <hr className="note-divider" />
+
                                 <div className="info-note-body">
+
                                     <strong>{`${note.label}:`}</strong>
-                                    <span>{note.text}</span>
+
+                                    {note.link 
+                                        ? <a href={note.link} target="_blank" rel="noopener noreferrer">{note.text}</a>
+                                        : <span>{note.text}</span>
+                                    }
+                                    
                                 </div>
                             </div>
                         ))}
