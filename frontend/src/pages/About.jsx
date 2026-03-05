@@ -21,12 +21,13 @@ function About() {
                 imgPos={"top"}
                 notes={[
                     {label: "nickname", text: "TheLegoGuy"},
-                    {label: "youtube", text: "legomaster_01", link: "https://youtube.com/@legomaster_01"},
-                    {label: "tiktok", text: "legomaster_01", link: "https://tiktok.com/"},
-                    {label: "tiktok", text: "", link: "https://tiktok.com/"},
+                    {label: "github", text: "LegoLandon7", link: "https://github.com/LegoLandon7"},
                     {label: "discord", text: "legomaster_01", link: "https://discord.com/"},
                     {label: "reddit", text: "u/legomaster_01", link: "https://reddit.com/u/legomaster_01"},
                     {label: "instagram", text: "lego.guy0", link: "https://instagram.com/"},
+                    {label: "youtube", text: "legomaster_01", link: "https://youtube.com/@legomaster_01"},
+                    {label: "tiktok", text: "legomaster_01", link: "https://tiktok.com/"},
+                    {label: "tiktok", text: "", link: "https://tiktok.com/"},
                 ]}
                 divider={false}
                 grow={1}
