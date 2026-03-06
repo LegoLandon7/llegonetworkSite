@@ -106,34 +106,45 @@
             width: 100%;
 
             .info-note {
+                container-type: inline-size;
                 display: flex;
                 flex-direction: column;
                 gap: var(--padding-4);
                 align-items: stretch;
 
                 .info-note-body {
-                    display: flex;
-                    justify-content: space-between;
+                    display: grid;
+                    grid-template-columns: 40% 60%;
                     align-items: baseline;
-                    flex-wrap: wrap;
 
                     strong {
-                        white-space: pre-line;
                         font-size: var(--body-font-size-4);
                         color: var(--body-text-color-1);
                         font-weight: var(--font-weight-1);
+                        min-width: 0;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
                     }
 
-                    span {
-                        white-space: pre-line;
+                    span, a {
                         font-size: var(--body-font-size-4);
-                        color: var(--body-text-color-1);
+                        min-width: 0;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                        white-space: nowrap;
                     }
 
-                    a {
-                        white-space: pre-line;
-                        font-size: var(--body-font-size-4);
-                        color: var(--detail-color-2);
+                    span { color: var(--body-text-color-1); }
+                    a { color: var(--detail-color-2); }
+                }
+
+                @container (max-width: 300px) {
+                    .info-note-body {
+                        grid-template-columns: 1fr;
+
+                        span, a {
+                            text-align: left;
+                        }
                     }
                 }
 

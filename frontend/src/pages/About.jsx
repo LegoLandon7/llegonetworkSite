@@ -22,12 +22,12 @@ function About() {
                 notes={[
                     {label: "nickname", text: "TheLegoGuy"},
                     {label: "github", text: "LegoLandon7", link: "https://github.com/LegoLandon7"},
-                    {label: "discord", text: "legomaster_01", link: "https://discord.com/"},
+                    {label: "discord", text: "legomaster_01", link: "https://discord.com/users/623964733799923733"},
                     {label: "reddit", text: "u/legomaster_01", link: "https://reddit.com/u/legomaster_01"},
-                    {label: "instagram", text: "lego.guy0", link: "https://instagram.com/"},
+                    {label: "instagram", text: "lego.guy0", link: "https://instagram.com/lego.guy0"},
                     {label: "youtube", text: "legomaster_01", link: "https://youtube.com/@legomaster_01"},
-                    {label: "tiktok", text: "legomaster_01", link: "https://tiktok.com/"},
-                    {label: "tiktok", text: "", link: "https://tiktok.com/"},
+                    {label: "tiktok", text: "legomaster_00", link: "https://tiktok.com/@legomaster_00"},
+                    {label: "tiktok", text: "thelegoguy0", link: "https://tiktok.com/@thelegoguy0"},
                 ]}
                 divider={false}
                 grow={1}

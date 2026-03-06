@@ -109,7 +109,7 @@
     background: var(--detail-color-2);
 }
 
-html, body {
+html, body, header {
     min-height: 100svh;
 
     background: linear-gradient(125deg, var(--background-color-2), var(--background-color-3));
