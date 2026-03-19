@@ -1,101 +1,84 @@
 import './InfoBlock.css'
+import { Link } from 'react-router-dom'
 
 function InfoBlock({
-    header = null, 
-    headerPos = 'left', // center, left, right
-
-    buttons=[],
-
-    description = null, 
-
-    img = null, 
-    imgPos = 'auto', // auto, left, right, top, bottom
-
-    notes=[],
-
-    maxWidth = null,
-    maxHeight = null,
-    grow = null,
-
-    divider = true
+    header      = null,
+    headerPos   = 'left',   // 'left' | 'center' | 'right'
+    buttons     = [],
+    description = null,
+    img         = null,
+    imgPos      = 'left',   // 'left' | 'right' | 'top' | 'bottom'
+    notes       = [],
+    maxWidth    = null,
+    maxHeight   = null,
+    grow        = null,
+    divider     = true,
 }) {
-    // get the image direction
-    const isBottom = imgPos === 'bottom';
-    const isRight = imgPos === 'right';
-    const isTop = imgPos === 'top';
-    const isLeft = imgPos === 'left';
-
     const flexDir =
-        isTop ? 'column' :
-        isBottom ? 'column-reverse' :
-        isRight ? 'row-reverse' :
-        isLeft ? 'row' :
-        null; // auto
+        imgPos === 'top'    ? 'column'         :
+        imgPos === 'bottom' ? 'column-reverse' :
+        imgPos === 'right'  ? 'row-reverse'    :
+                              'row'
 
-    // button data
-    const buttonsEl = buttons.length > 0 && (
-        <div className="info-buttons">
-            {buttons.map((btn, idx) => (
-                <a key={idx} href={btn.to} className="info-button">{btn.label}</a>
-            ))}
-        </div>
-    );
+    const imgIsVertical = imgPos === 'top' || imgPos === 'bottom'
 
-    // return info block
     return (
-       <div className={`info-block ${!flexDir ? imgPos : ''}`} style={{
-            ...(flexDir && { flexDirection: flexDir }),
-            ...(maxWidth && { maxWidth }),
-            ...(maxHeight && { maxHeight }),
-            ...(grow && { flex: grow, minWidth: 0 }),
-        }}>
+        <div
+            className="info-block"
+            style={{
+                flexDirection: flexDir,
+                ...(maxWidth  && { maxWidth }),
+                ...(maxHeight && { maxHeight }),
+                ...(grow      && { flex: grow, minWidth: 0 }),
+            }}
+        >
+            {img && (
+                <img
+                    className="info-img"
+                    src={img}
+                    alt={header || ''}
+                    style={{ width: imgIsVertical ? '60%' : undefined }}
+                />
+            )}
 
-            {/*image*/}
-            {img && <img src={img} style={{ width: (isTop || isBottom) ? '80%' : '30%' }} />}
-
-            {/*body text*/}
             <div className="info-body">
-
-                {/*header + buttons*/}
                 {(header || buttons.length > 0) && (
-                    <div className="info-header-row">
-                        {headerPos === 'right' && buttonsEl}
-                        {header && <h2 style={{ textAlign: headerPos }}>{header}</h2>}
-                        {(headerPos === 'left' || headerPos === 'center') && buttonsEl}
+                    <div className={`info-header-row pos-${headerPos}`}>
+                        {header && <h2>{header}</h2>}
+                        {buttons.length > 0 && (
+                            <div className="info-buttons">
+                                {buttons.map((btn, i) => (
+                                    <Link key={i} to={btn.to} className="info-button">
+                                        {btn.label}
+                                    </Link>
+                                ))}
+                            </div>
+                        )}
                     </div>
                 )}
 
-                {/*divider*/}
-                {divider && <div className="header-divider" />}
+                {divider && <div className="info-divider" />}
 
-                {/*description*/}
-                {description && <p>{description}</p>}
+                {description && <p className="info-description">{description}</p>}
 
-                {/*notes*/}
                 {notes.length > 0 && (
-                    <div className="info-notes">
-                        {notes.map((note, idx) => (
-                            <div key={idx} className="info-note">
-
-                                <hr className="note-divider" />
-
-                                <div className="info-note-body">
-
-                                    <strong>{`${note.label}:`}</strong>
-
-                                    {note.link 
+                    <dl className="info-notes">
+                        {notes.map((note, i) => (
+                            <div key={i} className="info-note">
+                                <dt>{note.label}</dt>
+                                <dd>
+                                    {note.link
                                         ? <a href={note.link} target="_blank" rel="noopener noreferrer">{note.text}</a>
-                                        : <span>{note.text}</span>
+                                        : note.text
                                     }
-                                    
-                                </div>
+                                </dd>
                             </div>
                         ))}
-                    </div>
+                    </dl>
                 )}
             </div>
-       </div>
-    );
+        </div>
+    )
 }
 
 export default InfoBlock

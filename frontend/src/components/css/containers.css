@@ -11,4 +11,13 @@
 .flex-container-wrap {
     display: flex;
     flex-wrap: wrap;
+    width: 100%;
+    gap: var(--padding-2);
+}
+
+@media (max-width: 768px) {
+    .flex-container-wrap {
+        flex-direction: column;
+        gap: var(--padding-3);
+    }
 }

@@ -1,86 +1,83 @@
 :root {
     /* Colors */
-    --background-color-1: rgb(8, 10, 28);
-    --background-color-2: rgb(12, 15, 38);
-    --background-color-3: rgb(16, 20, 50);
+    --background-color-1: rgb(10, 10, 12);
+    --background-color-2: rgb(14, 14, 18);
+    --background-color-3: rgb(18, 18, 24);
 
-    --header-background-color-1: rgb(10, 12, 35);
-    --header-background-color-2: rgb(18, 22, 60);
-    --header-background-color-3: rgba(80, 100, 220, 0.25);
-    --header-background-color-4: rgba(50, 70, 180, 0.25);
+    --header-background-color-1: rgb(20, 20, 26);
+    --header-background-color-2: rgb(28, 28, 36);
+    --header-background-color-3: rgba(255, 255, 255, 0.04);
+    --header-background-color-4: rgba(255, 255, 255, 0.06);
 
-    --body-background-color-1: rgba(20, 25, 60, 0.4);
-    --body-background-color-2: rgba(40, 50, 100, 0.4);
+    --body-background-color-1: rgba(255, 255, 255, 0.03);
+    --body-background-color-2: rgba(255, 255, 255, 0.06);
 
-    --header-text-color-1: rgb(130, 160, 255);
-    --header-text-color-2: rgb(225, 228, 255);
+    --header-text-color-1: rgb(220, 220, 230);
+    --header-text-color-2: rgb(240, 240, 245);
 
-    --body-text-color-1: rgb(195, 200, 230);
-    --body-text-color-2: rgb(155, 162, 200);
-    --body-text-color-3: rgb(110, 118, 160);
+    --body-text-color-1: rgb(180, 180, 195);
+    --body-text-color-2: rgb(130, 130, 148);
+    --body-text-color-3: rgb(85, 85, 100);
 
-    --detail-color-1: rgb(60, 90, 200);
-    --detail-color-2: rgb(80, 60, 180);
-    --detail-color-3: rgb(55, 45, 160);
+    --detail-color-1: rgb(75, 75, 95);
+    --detail-color-2: rgb(95, 95, 115);
+    --detail-color-3: rgb(55, 55, 72);
 
-    --color-good: rgb(0, 200, 0);
-    --color-bad: rgb(200, 0, 0);
-    --color-warning: rgb(200, 200, 0);
+    --color-good: rgb(100, 200, 120);
+    --color-bad: rgb(220, 80, 80);
+    --color-warning: rgb(210, 180, 60);
 
-    /*Font Size*/
-    --header-font-size-1: clamp(2rem, 5vw, 6.5rem);
-    --header-font-size-2: clamp(1.5rem, 2.5vw, 6rem);
-    --header-font-size-3: clamp(1.25rem, 1.5vw + 0.5rem, 3.75rem);
+    /* Font Sizes */
+    --header-font-size-1: clamp(1.4rem, 2.5vw, 2.2rem);
+    --header-font-size-2: clamp(1.05rem, 1.6vw, 1.4rem);
+    --header-font-size-3: clamp(0.9rem, 1.2vw, 1.1rem);
 
-    --body-font-size-1: clamp(2rem, 4vw , 4rem);
-    --body-font-size-2: clamp(1.5rem, 3.5vw, 3rem);
-    --body-font-size-3: clamp(1rem, 3vw, 2rem);
-    --body-font-size-4: clamp(0.75rem, 2.75vw, 1.5rem);
+    --body-font-size-1: clamp(1.2rem, 2vw, 1.8rem);
+    --body-font-size-2: clamp(1rem, 1.6vw, 1.35rem);
+    --body-font-size-3: clamp(0.88rem, 1.2vw, 1rem);
+    --body-font-size-4: clamp(0.78rem, 1vw, 0.9rem);
 
-    /*Other Sizes*/
+    /* Spacing */
     --padding-1: 2rem;
     --padding-2: 1rem;
     --padding-3: 0.5rem;
     --padding-4: 0.25rem;
 
-    /*Borders*/
-    --border-1: 0.2rem solid var(--detail-color-1);
-    --border-2: 0.4rem solid var(--detail-color-2);
-    --border-3: 0.4rem solid var(--detail-color-3);
-    --border-3: 0.2rem solid grey;
+    /* Borders */
+    --border-1: 0.15rem solid rgba(255, 255, 255, 0.1);
+    --border-2: 0.3rem solid rgba(255, 255, 255, 0.12);
+    --border-3: 0.15rem solid rgba(255, 255, 255, 0.06);
 
-    --border-radius-1: 16px;
+    --border-radius-1: 12px;
     --border-radius-2: 8px;
     --border-radius-3: 4px;
     --border-radius-4: 2px;
 
-    --shadow-1: 0 8px 16px rgba(0, 0, 0, 0.4);
-    --shadow-2: 0 4px 8px rgba(0, 0, 0, 0.3);
-    --shadow-3: 0 2px 4px rgba(0, 0, 0, 0.2);
+    --shadow-1: 0 8px 24px rgba(0, 0, 0, 0.6);
+    --shadow-2: 0 4px 12px rgba(0, 0, 0, 0.4);
+    --shadow-3: 0 2px 6px rgba(0, 0, 0, 0.25);
 
-    /*Transitions*/
+    /* Transitions */
     --transition-1: 500ms ease-in-out;
-    --transition-2: 350ms ease-in-out;
-    --transition-3: 200ms ease-in-out;
+    --transition-2: 300ms ease-in-out;
+    --transition-3: 180ms ease-in-out;
 
-    /*Font*/
+    /* Font weights */
     --font-weight-1: 700;
     --font-weight-2: 500;
     --font-weight-3: 300;
     --font-weight-4: 100;
 
-    /*Z index*/
+    /* Z-index */
     --z-4: 1000;
     --z-3: 500;
     --z-2: 200;
     --z-1: 1;
 
-    /*Widths*/
-    --max-width: 1400px;
-
-    /*Other*/
-    --navbar-height: clamp(48px, 5vw, 120px);
-    --navbar-width: clamp(200px, 7.5vw, 300px);
+    /* Layout */
+    --max-width: 1200px;
+    --navbar-height: clamp(48px, 5vw, 64px);
+    --navbar-width: clamp(160px, 45vw, 240px);
 }
 
 * {
@@ -88,32 +85,21 @@
     box-sizing: border-box;
 
     scrollbar-gutter: stable;
-    scrollbar-color: var(--detail-color-1) var(--background-color-1);
+    scrollbar-color: var(--detail-color-2) var(--background-color-1);
     scrollbar-width: thin;
 }
 
-::-webkit-scrollbar {
-    width: 8px;
-}
-
-::-webkit-scrollbar-track {
-    background: var(--background-color-1);
-}
-
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--background-color-1); }
 ::-webkit-scrollbar-thumb {
-    background: var(--detail-color-1);
+    background: var(--detail-color-2);
     border-radius: var(--border-radius-2);
 }
+::-webkit-scrollbar-thumb:hover { background: var(--detail-color-1); }
 
-::-webkit-scrollbar-thumb:hover {
-    background: var(--detail-color-2);
-}
-
-html, body, header {
+html, body {
     min-height: 100svh;
-
-    background: linear-gradient(125deg, var(--background-color-2), var(--background-color-3));
-
+    background: linear-gradient(135deg, var(--background-color-1), var(--background-color-3));
     overflow-x: hidden;
     overflow-y: scroll;
 }
@@ -123,9 +109,9 @@ html, body, header {
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
-    flex-wrap: wrap;
 
-    margin: calc(var(--navbar-height) + var(--padding-3)) auto 0;
+    margin: calc(var(--navbar-height) + var(--padding-2)) auto 0;
+    padding: 0 var(--padding-2);
     gap: var(--padding-2);
 
     width: 100%;
@@ -136,5 +122,6 @@ html, body, header {
 @media (max-width: 768px) {
     .main-content {
         padding: 0 var(--padding-3);
+        gap: var(--padding-3);
     }
 }

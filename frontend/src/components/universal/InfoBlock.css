@@ -1,177 +1,178 @@
 .info-block {
     display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-
-    margin: var(--padding-3) var(--padding-3);
-
-    width: auto;
-    height: auto;
-    overflow-x: hidden;
-    overflow-y: scroll;
-    
+    align-items: stretch;
+    width: 100%;
     border: var(--border-2);
     border-radius: var(--border-radius-1);
-    
-    background: linear-gradient(45deg, var(--header-background-color-4), var(--header-background-color-3));
-
-    img {
-        aspect-ratio: 1 / 1;
-        width: 30%;
-        height: auto;
-        align-self: center;
-        margin: var(--padding-2);
-        border-radius: var(--border-radius-1);
-    }
-
-    .info-body {
-        flex: 1;
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-start;
-
-        padding: var(--padding-2) var(--padding-2);
-
-        width: 100%;
-
-        .info-header-row {
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            width: 100%;
-
-            h2 {
-                flex: 1;
-                margin-bottom: var(--padding-3);
-            }
-            margin-bottom: var(--padding-3);
-        }
-
-        .info-buttons {
-            display: flex;
-            flex-direction: row;
-            flex-wrap: wrap;
-            gap: var(--padding-3);
-            /*align-self: flex-end;*/
-        }
-
-        .info-button {
-            padding: var(--padding-3) var(--padding-2);
-            background-color: var(--header-background-color-4);
-
-            color: var(--body-text-color-1);
-            text-decoration: none;
-
-            border: var(--border-1);
-            border-radius: var(--border-radius-2);
-            font-size: var(--body-font-size-3);
-            font-weight: var(--font-weight-1);
-            transition: background-color var(--transition-3);
-
-            &:hover {
-                background-color: var(--detail-color-2);
-            }
-        }
-
-        .header-divider {
-            height: var(--padding-3);
-            width: 100%;
-
-            background-color: var(--detail-color-2);
-            border: var(--border-1);
-            border-radius: var(--border-radius-2);
-
-            margin-top: var(--padding-3);
-        }
-
-        h2 {
-            white-space: pre-line;
-            margin: 0 0;
-            color: var(--header-text-color-2);
-            font-size: var(--header-font-size-1);
-        }
-
-        p {
-            white-space: pre-line;
-            text-align: start;
-            color: var(--body-text-color-1);
-            font-size: var(--body-font-size-3);
-        }
-
-        .info-notes {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: stretch;
-
-            width: 100%;
-
-            .info-note {
-                container-type: inline-size;
-                display: flex;
-                flex-direction: column;
-                gap: var(--padding-4);
-                align-items: stretch;
-
-                .info-note-body {
-                    display: grid;
-                    grid-template-columns: 40% 60%;
-                    align-items: baseline;
-
-                    strong {
-                        font-size: var(--body-font-size-4);
-                        color: var(--body-text-color-1);
-                        font-weight: var(--font-weight-1);
-                        min-width: 0;
-                        overflow: hidden;
-                        text-overflow: ellipsis;
-                    }
-
-                    span, a {
-                        font-size: var(--body-font-size-4);
-                        min-width: 0;
-                        overflow: hidden;
-                        text-overflow: ellipsis;
-                        white-space: nowrap;
-                    }
-
-                    span { color: var(--body-text-color-1); }
-                    a { color: var(--detail-color-2); }
-                }
-
-                @container (max-width: 300px) {
-                    .info-note-body {
-                        grid-template-columns: 1fr;
-
-                        span, a {
-                            text-align: left;
-                        }
-                    }
-                }
-
-                .note-divider {
-                    width: 100%;
-                }
-            }
-        }
-    }
+    background: var(--header-background-color-4);
+    box-shadow: var(--shadow-2);
+    overflow: hidden;
 }
 
+/* Image */
+.info-img {
+    width: 200px;
+    height: auto;
+    object-fit: cover;
+    flex-shrink: 0;
+    align-self: center;
+    margin: var(--padding-2);
+    border-radius: var(--border-radius-2);
+}
+
+/* Body */
+.info-body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    padding: var(--padding-2);
+    gap: var(--padding-3);
+}
+
+/* Header row */
+.info-header-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--padding-3);
+}
+.info-header-row.pos-right {
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+}
+.info-header-row.pos-center {
+    justify-content: center;
+    text-align: center;
+}
+
+.info-header-row h2 {
+    flex: 1;
+    margin: 0;
+    font-size: var(--header-font-size-1);
+    font-weight: var(--font-weight-1);
+    color: var(--header-text-color-2);
+    white-space: pre-line;
+    line-height: 1.2;
+}
+
+/* Buttons */
+.info-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--padding-3);
+}
+
+.info-button {
+    display: inline-flex;
+    align-items: center;
+    padding: 6px var(--padding-3);
+    background: rgba(255, 255, 255, 0.06);
+    border: var(--border-1);
+    border-radius: var(--border-radius-2);
+    color: var(--body-text-color-1);
+    font-size: var(--body-font-size-4);
+    font-weight: var(--font-weight-2);
+    text-decoration: none;
+    white-space: nowrap;
+    transition: background var(--transition-3), color var(--transition-3);
+}
+.info-button:hover {
+    background: rgba(255, 255, 255, 0.12);
+    color: var(--header-text-color-2);
+}
+
+/* Divider */
+.info-divider {
+    height: 1px;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 1px;
+    flex-shrink: 0;
+}
+
+/* Description */
+.info-description {
+    margin: 0;
+    color: var(--body-text-color-1);
+    font-size: var(--body-font-size-3);
+    line-height: 1.65;
+    white-space: pre-line;
+}
+
+/* Notes — using a definition list */
+.info-notes {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+}
+
+.info-note {
+    display: grid;
+    grid-template-columns: 38% 1fr;
+    align-items: baseline;
+    padding: 6px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    gap: var(--padding-3);
+}
+.info-note:first-child {
+    border-top: none;
+}
+
+.info-note dt {
+    font-size: var(--body-font-size-4);
+    font-weight: var(--font-weight-2);
+    color: var(--body-text-color-2);
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.info-note dt::after {
+    content: ':';
+}
+
+.info-note dd {
+    margin: 0;
+    font-size: var(--body-font-size-4);
+    color: var(--body-text-color-1);
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.info-note dd a {
+    color: var(--body-text-color-2);
+    text-decoration: none;
+    transition: color var(--transition-3);
+}
+.info-note dd a:hover {
+    color: var(--header-text-color-1);
+}
+
+/* Mobile */
 @media (max-width: 768px) {
     .info-block {
         flex-direction: column !important;
-        align-items: stretch;
         flex: unset !important;
-        width: 100%;
-        margin: var(--padding-3) 0;
+        margin: 0;
+    }
 
-        img {
-            align-self: center;
-            width: 80% !important;
-        }
+    .info-img {
+        width: 50% !important;
+        max-width: 180px;
+        align-self: center;
+        margin: var(--padding-2) auto var(--padding-3);
+    }
 
-        .info-notes {
-            width: 100%;
-        }
+    .info-note {
+        grid-template-columns: 1fr;
+        gap: 2px;
+    }
+
+    .info-note dd {
+        white-space: normal;
     }
 }
