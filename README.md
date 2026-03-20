@@ -17,6 +17,7 @@ The backend is a Cloudflare Worker at `api.llegonetwork.dev`. It handles Discord
 ## Running Locally
 
 ```bash
+cd frontend
 npm install
 npm run dev
 ```
@@ -24,7 +25,7 @@ npm run dev
 For the API worker:
 
 ```bash
-cd api
+cd backend
 cp wrangler.toml.example wrangler.toml
 cp .dev.vars.example .dev.vars
 # fill in both files with your values
