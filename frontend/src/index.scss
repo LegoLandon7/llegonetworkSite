@@ -46,6 +46,7 @@
     --bg:        #eeeeee;
     --bg-surface:#e3e3e3;
     --bg-subtle: #c1c1c1;
+    --bg-hover:  #d1d1d6;
 
     --text:       #111111;
     --text-muted: #555555;
@@ -69,6 +70,7 @@
     --bg:        #0f0f0f;
     --bg-surface:#1a1a1a;
     --bg-subtle: #242424;
+    --bg-hover:  #2a2a2a;
 
     --text:       #f0f0f0;
     --text-muted: #a0a0a0;
@@ -130,6 +132,8 @@ button {
     background: none;
     border: none;
 
+    font-family: inherit;
+
     transition: opacity var(--transition);
 
     &:hover  { opacity: 0.8; }
@@ -171,4 +175,27 @@ body {
     line-height: 1.6;
 
     padding-top: var(--navbar-height);
+}
+
+// scrollbar
+
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--bg-subtle);
+    border-radius: var(--radius-full);
+
+    &:hover { background: var(--text-faint); }
+}
+
+* {
+    scrollbar-width: thin;
+    scrollbar-color: var(--bg-subtle) transparent;
 }

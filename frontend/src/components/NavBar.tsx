@@ -1,81 +1,89 @@
-import { NavLink, useLocation } from 'react-router';
-import { useState } from 'react';
+import { NavLink, useMatch } from 'react-router';
+import { useState, useEffect, useRef } from 'react';
 import './NavBar.scss'
 
 function NavBar() {
-    const [dropdownOpen, setDropdownOpen] = useState(false)
-    const [menuOpen, setMenuOpen] = useState(false)
-    const [mobileProjectsOpen, setMobileProjectsOpen] = useState(false)
-    const location = useLocation()
+    const [open, setOpen] = useState<'projects' | 'settings' | null>(null);
+    const [menuOpen, setMenuOpen] = useState(false);
 
-    const isProjectsActive = location.pathname.startsWith('/projects')
+    const navRef = useRef<HTMLElement>(null);
 
-    const activeSub = location.pathname.startsWith('/projects/legobot') ? 'LegoBot'
-        : location.pathname.startsWith('/projects/legogpt') ? 'LegoGPT'
-        : null
+    const projectsActive = useMatch('/projects/*');
+    const settingsActive = useMatch('/settings/*');
+    const projectsMatch = useMatch('/projects/:page');
+    const settingsMatch = useMatch('/settings/:page');
+
+    useEffect(() => {
+        function handleClickOutside(e: MouseEvent) {
+            if (navRef.current && !navRef.current.contains(e.target as Node)) {
+                setMenuOpen(false);
+                setOpen(null);
+            }
+        }
+        document.addEventListener('mousedown', handleClickOutside);
+        return () => document.removeEventListener('mousedown', handleClickOutside);
+    }, []);
+
+    function closeAll() {
+        setOpen(null);
+        setMenuOpen(false);
+    }
 
     return (
-        <nav className='navbar'>
+        <nav className='navbar' ref={navRef}>
 
             <NavLink className='nav-brand' to='/'>
-                <img src='favicon.png' />
-                <h2>llegonetwork</h2>
-                <h3>.dev</h3>
+                <img src='/favicon.png' />
+                <span className='brand-text'>
+                    <h2>llegonetwork</h2>
+                    <h3>.dev</h3>
+                </span>
             </NavLink>
 
-            <div className='nav-links'>
-                <NavLink to='/'>Home</NavLink>
+            <div className={`nav-links ${menuOpen ? 'open' : ''}`}>
+                <NavLink to='/' onClick={closeAll}>Home</NavLink>
 
-                <div className={`dropdown ${dropdownOpen ? 'open' : ''}`}>
+                <div className='nav-dropdown'>
                     <button
-                        className={`dropdown-trigger ${dropdownOpen ? 'open' : ''} ${isProjectsActive ? 'active' : ''}`}
-                        onClick={() => setDropdownOpen(o => !o)}
-                    >
-                        <span className='trigger-label'>
+                        onClick={() => setOpen(open === 'projects' ? null : 'projects')}
+                        className={projectsActive ? 'active' : ''}>
+                        <span>
                             Projects
-                            {activeSub && <span className='trigger-sub'>{activeSub}</span>}
+                            <span className={`caret ${open === 'projects' ? 'open' : ''}`} />
                         </span>
-                        <span className='chevron'>
-                            ˅
-                        </span>
+                        {projectsMatch && <span className='subroute'>{projectsMatch.params.page}</span>}
                     </button>
 
-                    <div className={`dropdown-panel ${dropdownOpen ? 'open' : ''}`}>
-                        <NavLink to='/projects' end onClick={() => setDropdownOpen(false)}>All</NavLink>
-                        <NavLink to='/projects/legobot' onClick={() => setDropdownOpen(false)}>LegoBot</NavLink>
-                        <NavLink to='/projects/legogpt' onClick={() => setDropdownOpen(false)}>LegoGPT</NavLink>
+                    <div className={`dropdown-menu ${open === 'projects' ? 'open' : ''}`}>
+                        <NavLink to='/projects' end onClick={closeAll}>All</NavLink>
+                        <NavLink to='/projects/legobot' onClick={closeAll}>LegoBot</NavLink>
+                        <NavLink to='/projects/legogpt' onClick={closeAll}>LegoGPT</NavLink>
                     </div>
                 </div>
-            </div>
 
-            <button
-                className={`hamburger ${menuOpen ? 'open' : ''}`}
-                onClick={() => setMenuOpen(o => !o)}
-            >
-                <span /><span /><span />
-            </button>
-
-            <div className={`mobile-menu ${menuOpen ? 'open' : ''}`}>
-                <NavLink to='/' onClick={() => setMenuOpen(false)}>Home</NavLink>
-
-                <div className={`mobile-group ${mobileProjectsOpen ? 'open' : ''}`}>
+                <div className='nav-dropdown'>
                     <button
-                        className={`mobile-group-btn ${mobileProjectsOpen ? 'open' : ''}`}
-                        onClick={() => setMobileProjectsOpen(o => !o)}
-                    >
-                        Projects
-                        <span className='chevron'>▾</span>
+                        onClick={() => setOpen(open === 'settings' ? null : 'settings')}
+                        className={settingsActive ? 'active' : ''}>
+                        <span>
+                            Settings
+                            <span className={`caret ${open === 'settings' ? 'open' : ''}`} />
+                        </span>
+                        {settingsMatch && <span className='subroute'>{settingsMatch.params.page}</span>}
                     </button>
 
-                    <div className={`mobile-sublinks ${mobileProjectsOpen ? 'open' : ''}`}>
-                        <div>
-                            <NavLink to='/projects' end onClick={() => setMenuOpen(false)}>All</NavLink>
-                            <NavLink to='/projects/legobot' onClick={() => setMenuOpen(false)}>LegoBot</NavLink>
-                            <NavLink to='/projects/legogpt' onClick={() => setMenuOpen(false)}>LegoGPT</NavLink>
-                        </div>
+                    <div className={`dropdown-menu ${open === 'settings' ? 'open' : ''}`}>
+                        <NavLink to='/settings' end onClick={closeAll}>All</NavLink>
+                        <NavLink to='/settings/appearance' onClick={closeAll}>Appearance</NavLink>
                     </div>
                 </div>
             </div>
+
+            <button className={`hamburger ${menuOpen ? 'open' : ''}`} onClick={() => { setMenuOpen(!menuOpen); setOpen(null); }}>
+                <span />
+                <span />
+                <span />
+            </button>
 
         </nav>
     );
