@@ -1,0 +1,36 @@
+.site-header {
+    display: flex;
+    flex-direction: column;
+    align-self: stretch;
+
+    gap: var(--space-sm);
+    margin: var(--space-md);
+
+    .header-content {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: var(--space-md);
+
+        img {
+            aspect-ratio: 1;
+            height: calc(var(--navbar-height) * 0.75);
+            width: auto;
+        }
+    }
+
+    hr {
+        align-self: stretch;
+        height: 2px;
+        background: var(--border);
+        border: none;
+    }
+
+    a {
+        align-self: flex-start;
+        color: var(--text-faint);
+        font-size: var(--text-sm);
+
+        &:hover { color: var(--accent-subtle); }
+    }
+}

@@ -41,6 +41,7 @@
 
     // other
     --navbar-height: clamp(3rem, 8vw, 4.5rem);
+    --max-width: 1200px;
 
     // colors (light)
     --bg:        #eeeeee;
@@ -179,8 +180,17 @@ body {
     padding-top: var(--navbar-height);
 }
 
-// scrollbar
+.main-content {
+     width: 100%;
+    max-width: var(--max-width);
+    margin: 0 auto;
 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+// scrollbar
 ::-webkit-scrollbar {
     width: 6px;
     height: 6px;

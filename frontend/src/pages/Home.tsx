@@ -1,10 +1,15 @@
-function Home() {
+import SiteHeader from "../components/SiteHeader";
+
+export default function Home() {
     return (
         <>
-            <h1>Welcome to the Llegonetwork.dev website!</h1>
-            <p>This is the home page for the Llegonetwork.dev website.</p>
+            <SiteHeader 
+                head="Welcome to llegonetwork.dev"
+                subhead="stuff about llegonetwork, and links to projects and socials"
+                align="center"
+            />
+
+
         </>
     );
 }
-
-export default Home;
