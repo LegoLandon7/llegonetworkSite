@@ -70,9 +70,9 @@
         }
 
         &.open {
-            span:nth-child(1) { transform: translateY(8.5px) rotate(45deg); }
+            span:nth-child(1) { transform: translateY(9px) rotate(45deg); }
             span:nth-child(2) { opacity: 0; width: 0; }
-            span:nth-child(3) { transform: translateY(-8.5px) rotate(-45deg); }
+            span:nth-child(3) { transform: translateY(-9px) rotate(-45deg); }
         }
     }
 
@@ -260,6 +260,9 @@
                 padding: 0 var(--space-md);
 
                 &::after { display: none; }
+
+                &:hover  { color: var(--text); background: var(--bg-hover); }
+                &.active { color: var(--text); background: var(--bg-hover); }
             }
 
             button:has(.subroute) > span:first-child::after { display: none; }
@@ -278,7 +281,6 @@
                     pointer-events: all;
                     border: none;
                     border-radius: 0;
-                    //background: var(--bg-subtle);
                     display: none;
                     transition: none;
 
@@ -286,7 +288,6 @@
 
                     a {
                         padding-left: var(--space-lg);
-                        //background: var(--bg-subtle);
 
                         &:hover  { background: var(--bg-hover); }
                         &.active { background: var(--bg-hover); }
