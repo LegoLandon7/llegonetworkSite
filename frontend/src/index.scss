@@ -101,7 +101,6 @@ a {
     text-decoration: none;
 
     color: var(--accent);
-    transition: color var(--transition);
 
     &:hover {
         color: var(--accent-hover);
@@ -117,7 +116,6 @@ a {
     margin: 0;
     padding: 0;
 
-    transition: background-color var(--transition), color var(--transition), border-color var(--transition);
 }
 
 ::selection {
@@ -137,8 +135,6 @@ button {
 
     font-family: inherit;
 
-    transition: opacity var(--transition);
-
     &:hover  { opacity: 0.8; }
     &:active { opacity: 0.6; }
     &:disabled {
@@ -156,7 +152,6 @@ input, textarea, select {
 
     padding: var(--space-sm) var(--space-md);
     outline: none;
-    transition: border-color var(--transition);
 
     &:focus        { border-color: var(--accent); }
     &::placeholder { color: var(--text-faint); }
@@ -172,7 +167,6 @@ html   { scroll-behavior: smooth; }
 
 body {
     background-color: var(--bg);
-    transition: background-color var(--transition), color var(--transition);
 
     color: var(--text);
     line-height: 1.6;
@@ -181,7 +175,7 @@ body {
 }
 
 .main-content {
-     width: 100%;
+    width: 100%;
     max-width: var(--max-width);
     margin: 0 auto;
 

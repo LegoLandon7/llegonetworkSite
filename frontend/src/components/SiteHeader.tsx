@@ -8,8 +8,8 @@ export default function SiteHeader({
     iconUrl,
     align = 'default',
 }: {
-    head?: string;
-    subhead?: string;
+    head: string;
+    subhead: string;
     backLabel?: string;
     backLink?: string;
     iconUrl?: string;
@@ -19,8 +19,8 @@ export default function SiteHeader({
         align === 'default' 
             ? 'center'
         : align === 'center' 
-            ? 'center' :
-        align === 'right'  
+            ? 'center' 
+        : align === 'right'  
             ? 'flex-end' 
             : 'flex-start';
 
@@ -31,10 +31,10 @@ export default function SiteHeader({
 
             <div className='header-content'>
                 {iconUrl && <img src={iconUrl}/>}
-                {head && <h1>{"" + head}</h1>}
+                <h1>{"" + head}</h1>
             </div>
 
-            {subhead && <p>{"" + subhead}</p>}
+            <p>{"" + subhead}</p>
 
             <hr />
         </header>

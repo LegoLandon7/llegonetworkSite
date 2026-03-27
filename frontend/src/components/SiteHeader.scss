@@ -22,8 +22,9 @@
     hr {
         align-self: stretch;
         height: 2px;
-        background: var(--border);
+        background: var(--border-strong);
         border: none;
+        border-radius: var(--radius-full);
     }
 
     a {
