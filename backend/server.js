@@ -1,10 +1,10 @@
-import handler from "./worker.js";
+import handler from "./auth-worker.js";
 import http from "http";
 import dotenv from "dotenv";
 
 dotenv.config();
 
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
 const server = http.createServer(async (req, res) => {
     res.setHeader("Access-Control-Allow-Origin", process.env.FRONTEND_URL || "*");
@@ -20,9 +20,7 @@ const server = http.createServer(async (req, res) => {
 
     const request = new Request(`http://localhost:${PORT}${req.url}`, {
         method: req.method,
-        headers: Object.fromEntries(
-        Object.entries(req.headers).map(([k, v]) => [k, v])
-        )
+        headers: Object.fromEntries(Object.entries(req.headers)),
     });
 
     const response = await handler(request);
@@ -32,6 +30,5 @@ const server = http.createServer(async (req, res) => {
 });
 
 server.listen(PORT, () => {
-    console.log(`Server running at http://localhost:${PORT}`);
-    console.log(`Discord Login: http://localhost:${PORT}/auth/login`);
+    console.log(`http://localhost:${PORT}`);
 });
