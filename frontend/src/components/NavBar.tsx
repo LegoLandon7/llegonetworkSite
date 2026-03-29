@@ -51,6 +51,25 @@ export default function NavBar() {
             </NavLink>
 
             <div className={`nav-links ${menuOpen ? 'open' : ''}`}>
+                {user ? (
+                    <div className='nav-dropdown user'>
+                        <button onClick={() => setOpen(open === 'user' ? null : 'user')}>
+                            <span>
+                                <img src={avatarUrl} />
+                                <span className='username'>{user.username}</span>
+                                <span className={`caret ${open === 'user' ? 'open' : ''}`} />
+                            </span>
+                        </button>
+
+                        <div className={`dropdown-menu ${open === 'user' ? 'open' : ''}`}>
+                            <NavLink to='/details' onClick={closeAll}>Details</NavLink>
+                            <a href='https://api.llegonetwork.dev/auth/logout'>Logout</a>
+                        </div>
+                    </div>
+                ) : (
+                    <a className='login' href={`https://api.llegonetwork.dev/auth/login?redirect=${encodeURIComponent(window.location.href)}`}>Login with Discord</a>
+                )}
+
                 <NavLink to='/' onClick={closeAll}>Home</NavLink>
 
                 <div className='nav-dropdown'>
@@ -70,25 +89,6 @@ export default function NavBar() {
                         <NavLink to='/projects/legogpt' onClick={closeAll}>LegoGPT</NavLink>
                     </div>
                 </div>
-
-                {user ? (
-                    <div className='nav-dropdown user'>
-                        <button onClick={() => setOpen(open === 'user' ? null : 'user')}>
-                            <span>
-                                <img src={avatarUrl} />
-                                <span className='username'>{user.username}</span>
-                                <span className={`caret ${open === 'user' ? 'open' : ''}`} />
-                            </span>
-                        </button>
-
-                        <div className={`dropdown-menu ${open === 'user' ? 'open' : ''}`}>
-                            <NavLink to='/details' onClick={closeAll}>Details</NavLink>
-                            <a href='https://api.llegonetwork.dev/auth/logout'>Logout</a>
-                        </div>
-                    </div>
-                ) : (
-                    <a className='login' href={`https://api.llegonetwork.dev/auth/login?redirect=${encodeURIComponent(window.location.href)}`}>Login with Discord</a>
-                )}
             </div>
 
             <button

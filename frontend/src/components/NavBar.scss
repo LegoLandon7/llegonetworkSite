@@ -254,11 +254,12 @@
             margin: auto var(--space-xs);
             height: calc(var(--navbar-height) * 0.55);
             border-radius: var(--radius-full);
-            background: var(--bg-subtle);
+            color: var(--accent);
+            background: var(--accent-subtle);
             transition: background var(--transition), color var(--transition);
 
             &::after { display: none; }
-            &:hover  { color: var(--text); background: var(--bg-hover); }
+            &:hover  { color: var(--accent); background: var(--accent-subtle-hover, var(--bg-hover)); }
         }
     }
 
@@ -303,6 +304,16 @@
 
                 &:hover  { color: var(--text); background: var(--bg-hover); }
                 &.active { color: var(--text); background: var(--bg-subtle); }
+            }
+
+            a.login {
+                height: var(--navbar-height);
+                margin: 0;
+                border-radius: 0;
+                background: none;
+                color: var(--accent);
+
+                &:hover { background: var(--bg-hover); color: var(--accent); }
             }
 
             button:has(.subroute) > span:first-child::after { display: none; }
