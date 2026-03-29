@@ -224,7 +224,6 @@
             &.user {
                 > button {
                     gap: var(--space-xs);
-                    
 
                     &::after { display: none; }
 
@@ -232,6 +231,8 @@
                         display: inline-flex;
                         align-items: center;
                         gap: var(--space-xs);
+
+                        .caret { align-self: center; }
                     }
 
                     img {
@@ -253,7 +254,7 @@
             margin: auto var(--space-xs);
             height: calc(var(--navbar-height) * 0.55);
             border-radius: var(--radius-full);
-            background: var(--accent-subtle);
+            background: var(--bg-subtle);
             transition: background var(--transition), color var(--transition);
 
             &::after { display: none; }
@@ -333,7 +334,11 @@
                     }
                 }
 
-                &.user > button .username { display: inline; }
+                &.user {
+                    order: -1;
+
+                    > button .username { display: inline; }
+                }
             }
         }
     }
