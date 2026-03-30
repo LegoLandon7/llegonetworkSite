@@ -41,6 +41,13 @@ function getAllowedOrigins(frontendUrl) {
     return frontendUrl.split(',').map(s => s.trim()).filter(Boolean);
 }
 
+function safeRedirectUrl(requested, frontendUrl) {
+    const allowed = getAllowedOrigins(frontendUrl);
+    return allowed.some(o => requested === o || requested.startsWith(o + '/'))
+        ? requested
+        : allowed[0];
+}
+
 function corsHeaders(origin, frontendUrl) {
     if (!getAllowedOrigins(frontendUrl).includes(origin)) return {};
     return {
@@ -257,8 +264,7 @@ async function requireAuth(req, env) {
 
 async function handleLogin(url, env) {
     const allowed      = getAllowedOrigins(env.FRONTEND_URL);
-    const requested    = url.searchParams.get('redirect') ?? allowed[0];
-    const safeRedirect = allowed.includes(requested) ? requested : allowed[0];
+    const safeRedirect = safeRedirectUrl(url.searchParams.get('redirect') ?? allowed[0], env.FRONTEND_URL);
 
     return redirect(`https://discord.com/api/oauth2/authorize?${new URLSearchParams({
         client_id:     env.DISCORD_CLIENT_ID,
@@ -321,8 +327,7 @@ async function handleCallback(url, env) {
 
 async function handleLogout(req, url, env) {
     const allowed      = getAllowedOrigins(env.FRONTEND_URL);
-    const requested    = url.searchParams.get('redirect') ?? allowed[0];
-    const safeRedirect = allowed.includes(requested) ? requested : allowed[0];
+    const safeRedirect = safeRedirectUrl(url.searchParams.get('redirect') ?? allowed[0], env.FRONTEND_URL);
 
     const payload = await verifyJWT(getCookie(req.headers.get('cookie'), 'auth'), env.COOKIE_SECRET);
     if (payload?.sessionId) await env.SESSIONS.delete(`session:${payload.sessionId}`);
