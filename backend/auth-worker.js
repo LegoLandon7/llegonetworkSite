@@ -319,10 +319,14 @@ async function handleCallback(url, env) {
     return redirect(redirectTo, { 'Set-Cookie': makeCookie(jwt) });
 }
 
-async function handleLogout(req, env) {
+async function handleLogout(req, url, env) {
+    const allowed      = getAllowedOrigins(env.FRONTEND_URL);
+    const requested    = url.searchParams.get('redirect') ?? allowed[0];
+    const safeRedirect = allowed.includes(requested) ? requested : allowed[0];
+
     const payload = await verifyJWT(getCookie(req.headers.get('cookie'), 'auth'), env.COOKIE_SECRET);
     if (payload?.sessionId) await env.SESSIONS.delete(`session:${payload.sessionId}`);
-    return redirect(getAllowedOrigins(env.FRONTEND_URL)[0], { 'Set-Cookie': clearCookie() });
+    return redirect(safeRedirect, { 'Set-Cookie': clearCookie() });
 }
 
 async function handleUser(req, env, cors) {
@@ -388,7 +392,7 @@ export default {
         switch (url.pathname) {
             case '/auth/login':          return handleLogin(url, env);
             case '/auth/callback':       return handleCallback(url, env);
-            case '/auth/logout':         return handleLogout(req, env);
+            case '/auth/logout':         return handleLogout(req, url, env);
             case '/user':                return handleUser(req, env, cors);
             case '/user/guilds':         return handleGuilds(req, env, cors);
             case '/user/guilds/member':  return handleGuildMember(req, url, env, cors);
