@@ -6,7 +6,7 @@ export default function Socials() {
         <>
             <SiteHeader 
                 head="My Socials"
-                subhead="links to my social media profiles"
+                subhead="links to my social media profiles and contact info SOME LINKS MAY NOT WORK RIGHT NOW BARE WITH ME"
                 align="left"
                 backLabel="Home"
                 backLink="/"

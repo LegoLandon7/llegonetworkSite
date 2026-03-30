@@ -35,7 +35,7 @@
 
             border-radius: var(--radius-full);
 
-            @media screen and (max-width: 600px) {
+            @media screen and (max-width: 856px) {
                 width: 50%;
             }
         }
@@ -49,13 +49,13 @@
         object-fit: cover;
         border-radius: var(--radius-md);
 
-        @media screen and (max-width: 600px) {
-            width: 300px;
+        @media screen and (max-width: 856px) {
+            width: 150px;
             max-width: 100%;
         }
     }
 
-    @media screen and (max-width: 600px) {
+    @media screen and (max-width: 856px) {
         flex-direction: column;
     }
 }
