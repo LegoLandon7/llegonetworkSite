@@ -3,6 +3,11 @@ import { createRoot } from 'react-dom/client'
 import './index.scss'
 import App from './pages/App.tsx'
 
+document.documentElement.setAttribute(
+    "data-theme",
+    localStorage.getItem("theme") || "light"
+);
+
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <App />

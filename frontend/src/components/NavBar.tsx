@@ -13,12 +13,14 @@ export default function NavBar() {
     const projectsActive = useMatch('/projects/*');
     const projectsMatch = useMatch('/projects/:page');
 
+    // fetch user data
     useEffect(() => {
         fetch('https://api.llegonetwork.dev/user', { credentials: 'include' })
             .then(r => r.ok ? r.json() : null)
             .then(d => { if (d) setUser(d); });
     }, []);
 
+    // closes dropdowns
     useEffect(() => {
         function handleClickOutside(e: MouseEvent) {
             if (navRef.current && !navRef.current.contains(e.target as Node)) {
@@ -83,11 +85,15 @@ export default function NavBar() {
                     </button>
 
                     <div className={`dropdown-menu ${open === 'projects' ? 'open' : ''}`}>
-                        <NavLink to='/projects' end onClick={closeAll}>All</NavLink>
+                        <NavLink to='/projects' end onClick={closeAll}>Overview</NavLink>
                         <NavLink to='/projects/legobot' onClick={closeAll}>LegoBot</NavLink>
                         <NavLink to='/projects/legogpt' onClick={closeAll}>LegoGPT</NavLink>
+                        <NavLink to='/projects/legogpt' onClick={closeAll}>Welcomer</NavLink>
                     </div>
                 </div>
+
+                <NavLink to='/settings' onClick={closeAll}>Settings</NavLink>
+                <NavLink to='/socials' onClick={closeAll}>Socials</NavLink>
             </div>
 
             <button
