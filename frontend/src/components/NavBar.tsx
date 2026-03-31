@@ -88,7 +88,7 @@ export default function NavBar() {
                         <NavLink to='/projects' end onClick={closeAll}>Overview</NavLink>
                         <NavLink to='/projects/legobot' onClick={closeAll}>LegoBot</NavLink>
                         <NavLink to='/projects/legogpt' onClick={closeAll}>LegoGPT</NavLink>
-                        <NavLink to='/projects/legogpt' onClick={closeAll}>Welcomer</NavLink>
+                        <NavLink to='/projects/welcomer' onClick={closeAll}>Welcomer</NavLink>
                     </div>
                 </div>
 

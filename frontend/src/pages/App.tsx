@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
 import Navbar from '../components/NavBar.tsx'
+import Footer from '../components/Footer.tsx'
 
 import Home from './Home.tsx'
 import Projects from './Projects.tsx'
@@ -21,6 +22,8 @@ function App() {
           <Route path="/socials" element={<Socials />} />
         </Routes>
       </main>
+      
+      <Footer />
     </BrowserRouter>
   )
 }
