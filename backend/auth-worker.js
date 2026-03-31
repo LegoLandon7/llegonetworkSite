@@ -280,6 +280,11 @@ async function handleCallback(url, env) {
     const state      = url.searchParams.get('state');
     const redirectTo = await consumeState(state, env.COOKIE_SECRET, env.SESSIONS);
 
+    if (url.searchParams.has('error')) {
+        const allowed = getAllowedOrigins(env.FRONTEND_URL);
+        return redirect(`${allowed[0]}?error=access_denied`);
+    }
+
     if (!code || typeof code !== 'string' || code.length > 512 || !redirectTo) return err(400);
 
     const tokenRes = await fetch('https://discord.com/api/oauth2/token', {
