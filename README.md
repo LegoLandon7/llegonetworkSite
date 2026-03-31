@@ -1,5 +1,7 @@
 # llegonetwork
 
+[llegonetwork.dev](https://llegonetwork.dev)
+
 llegonetwork is a personal site and collection of projects built by a single developer as a way to learn and experiment with web development, bots, and new concepts.
 
 > **Note:** The backend is not production-ready. Do not attempt to use it in its current state. AI tools were used to help understand unfamiliar concepts during development. All frontend code was written independently.
