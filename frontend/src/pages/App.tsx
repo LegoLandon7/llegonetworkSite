@@ -8,7 +8,23 @@ import Projects from './Projects.tsx'
 import Settings from './Settings.tsx'
 import Socials from './Socials.tsx'
 
+import ReactMarkdown from "react-markdown";
+import React from 'react'
+
 function App() {
+
+  const [termsMd, setTermsMd] = React.useState('');
+  const [privacyMd, setPrivacyMd] = React.useState('');
+
+  React.useEffect(() => {
+    fetch('/terms.md')
+      .then(res => res.text())
+      .then(setTermsMd);
+
+    fetch('/privacy.md')
+      .then(res => res.text())
+      .then(setPrivacyMd);
+  }, []);
 
   return (
     <BrowserRouter>
@@ -20,6 +36,9 @@ function App() {
           <Route path="/projects" element={<Projects />} />
           <Route path="/settings" element={<Settings />} />
           <Route path="/socials" element={<Socials />} />
+
+          <Route path="/terms" element={<div className="markdown"><ReactMarkdown>{termsMd}</ReactMarkdown></div>} />
+          <Route path="/privacy" element={<div className="markdown"><ReactMarkdown>{privacyMd}</ReactMarkdown></div>} />
         </Routes>
       </main>
       
