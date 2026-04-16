@@ -6,7 +6,7 @@ import Navbar from '../components/NavBar.tsx'
 import Footer from '../components/Footer.tsx'
 
 import Home from './Home.tsx'
-import Projects from './Projects.tsx'
+import Bots from './Bots.tsx'
 import Settings from './Settings.tsx'
 import Socials from './Socials.tsx'
 
@@ -32,16 +32,16 @@ function App() {
       <main className='main-content'>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/projects" element={<Projects />} />
+          <Route path="/bots" element={<Bots />} />
           <Route path="/settings" element={<Settings />} />
           <Route path="/socials" element={<Socials />} />
 
           <Route path="/terms" element={<div className="markdown"><ReactMarkdown>{termsMd}</ReactMarkdown></div>} />
           <Route path="/privacy" element={<div className="markdown"><ReactMarkdown>{privacyMd}</ReactMarkdown></div>} />
 
-          <Route path="/projects/legobot" element={<Projects />} />
-          <Route path="/projects/legogpt" element={<Projects />} />
-          <Route path="/projects/welcomer" element={<Projects />} />
+          <Route path="/bots/legobot" element={<Bots />} />
+          <Route path="/bots/legogpt" element={<Bots />} />
+          <Route path="/bots/welcomer" element={<Bots />} />
         </Routes>
       </main>
       
