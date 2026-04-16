@@ -21,10 +21,9 @@ type DropdownItem = {
 
 const botItems: DropdownItem[] = [
   { label: 'Overview', to: '/bots' },
-  { divider: true, label: '', to: '' },
   { label: 'LegoBot', to: '/bots/legobot', icon: legobotIcon },
   { label: 'LegoGPT', to: '/bots/legogpt', icon: legogptIcon },
-  { label: 'Welcomer', to: '/bots/welcomer', icon: welcomerIcon },
+  { label: 'StatsBot', to: '/bots/statsbot', icon: welcomerIcon },
 ];
 
 export default function NavBar() {
@@ -111,19 +110,18 @@ export default function NavBar() {
         <NavLink to="/" onClick={closeAll}>
           Home
         </NavLink>
-        
+
         <NavLink to="/projects" onClick={closeAll}>
           Projects
         </NavLink>
 
-        {/* RENAMED: Bots dropdown */}
         <div className="nav-dropdown">
           <button
             onClick={() => setOpen(open === 'bots' ? null : 'bots')}
             className={botsActive ? 'active' : ''}
           >
             <span>
-              Bots
+              Discord Bots
               <span className={`caret ${open === 'bots' ? 'open' : ''}`} />
             </span>
 
