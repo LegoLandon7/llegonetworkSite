@@ -10,6 +10,8 @@ import Bots from './Bots.tsx'
 import Settings from './Settings.tsx'
 import Socials from './Socials.tsx'
 
+import ScrollToTop from '../utils/ScrollToTop.tsx'
+
 function App() {
 
   const [termsMd, setTermsMd] = useState('');
@@ -27,6 +29,7 @@ function App() {
 
   return (
     <BrowserRouter>
+    <ScrollToTop />
       <Navbar />
     
       <main className='main-content'>
