@@ -4,7 +4,7 @@ import './NavBar.scss';
 
 import legobotIcon from '../assets/legobot.png';
 import legogptIcon from '../assets/legogpt.png';
-import welcomerIcon from '../assets/welcomer.png';
+import statsbotIcon from '../assets/statsbot.png';
 
 type User = {
   userId: string;
@@ -21,9 +21,10 @@ type DropdownItem = {
 
 const botItems: DropdownItem[] = [
   { label: 'Overview', to: '/bots' },
+  { divider: true, label: '', to: ''},
   { label: 'LegoBot', to: '/bots/legobot', icon: legobotIcon },
   { label: 'LegoGPT', to: '/bots/legogpt', icon: legogptIcon },
-  { label: 'StatsBot', to: '/bots/statsbot', icon: welcomerIcon },
+  { label: 'StatsBot', to: '/bots/statsbot', icon: statsbotIcon },
 ];
 
 export default function NavBar() {

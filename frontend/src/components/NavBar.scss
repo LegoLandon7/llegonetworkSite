@@ -368,12 +368,15 @@
                     pointer-events: all;
                     border: none;
                     border-radius: 0;
-                    display: none;
-                    transition: none;
-                    max-height: 40vh;
-                    overflow-y: auto;
+                    display: flex;
+                    max-height: 0;
+                    overflow: hidden;
+                    transition: max-height var(--transition);
 
-                    &.open { display: flex; }
+                    &.open {
+                        max-height: 40vh;
+                        overflow-y: auto;
+                    }
 
                     a {
                         padding-left: var(--space-lg);
