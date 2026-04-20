@@ -28,6 +28,13 @@ function App() {
       .then(setPrivacyMd);
   }, []);
 
+  useEffect(() => {
+    console.log(
+      '%c ⛔ Do not paste unknown code in here, unless you know what you\'re doing!',
+      'color: #ff4444; font-size: 14px; font-weight: bold;'
+    );
+  }, []);
+
   return (
     <BrowserRouter>
     <ScrollToTop />

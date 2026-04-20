@@ -10,7 +10,7 @@ export default function Footer() {
                 <a href="/privacy">Privacy Policy</a>
                 
                 <a href="https://github.com/LegoLandon7/llegonetworkSite" target="_blank" rel="noopener noreferrer">
-                    GitHub Repo
+                    Github Repo
                 </a>
             </div>
         </footer>
