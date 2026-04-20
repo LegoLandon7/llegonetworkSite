@@ -1,5 +1,5 @@
 .card {
-    background: var(--bg-subtle);
+    background: var(--bg-surface);
     border-radius: var(--radius-lg);
     border: 2px solid var(--border-strong);
     padding: var(--space-md) var(--space-md);
@@ -48,7 +48,7 @@
 
     &:hover {
         border-color: var(--accent);
-        background: var(--bg-surface);
+        background: var(--bg-hover);
         transform: translateY(-2px);
     }
 }
