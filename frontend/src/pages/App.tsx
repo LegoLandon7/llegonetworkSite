@@ -50,10 +50,6 @@ function App() {
 
           <Route path="/terms" element={<div className="markdown"><ReactMarkdown>{termsMd}</ReactMarkdown></div>} />
           <Route path="/privacy" element={<div className="markdown"><ReactMarkdown>{privacyMd}</ReactMarkdown></div>} />
-
-          <Route path="/bots/legobot" element={<Bots />} />
-          <Route path="/bots/legogpt" element={<Bots />} />
-          <Route path="/bots/welcomer" element={<Bots />} />
         </Routes>
       </main>
       

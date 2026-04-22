@@ -11,8 +11,8 @@ export default function Home() {
             />
 
             <SiteSection
-                head="About Us"
-                subhead="llegonetwork is a website made by a single creator that is currently a senior in highschool. This website includes many discord bots, projects, games, and much more! This website is mainly used by me (Landon) to expirement with web development, and other new concepts to me!"
+                head="About Me"
+                subhead="llegonetwork is a personal website made by me (Landon) to showcase and explore new concepts to me. As of now I am currently a senior in highschool."
                 imgUrl="/favicon.png"
                 align="left"
             />
