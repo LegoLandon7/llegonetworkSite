@@ -29,6 +29,14 @@ export default function Projects() {
                 linkUrl="https://github.com/legolandon7/DDARaycasterJS"
                 newTab
             />
+
+            <Card 
+                title="Falling Sand Simulator"
+                description="A simple project for me to learn basics about vanilla html + js."
+                imageUrl={githubIcon}
+                linkUrl="https://github.com/legolandon7/FallingSandSim"
+                newTab
+            />
         </>
     );
 }
